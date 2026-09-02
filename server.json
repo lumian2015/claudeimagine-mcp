@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.claudeimagine/claude-imagine",
+  "title": "Claude Imagine",
+  "description": "Generate AI images and videos from any compatible MCP client.",
+  "version": "1.1.0",
+  "websiteUrl": "https://claudeimagine.com/mcp",
+  "icons": [
+    {
+      "src": "https://claudeimagine.com/logo.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://claudeimagine.com/api/mcp"
+    }
+  ]
+}
