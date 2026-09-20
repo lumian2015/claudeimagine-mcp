@@ -1,4 +1,4 @@
-# Claude Imagine MCP Server
+# Claude Imagine — MCP Server & Claude Code Plugin
 
 A remote [Model Context Protocol](https://modelcontextprotocol.io) server that
 gives Claude the ability to generate images and videos — something it can't
@@ -31,7 +31,19 @@ free credits total before you need to pay anything.
 
 ## Setup
 
-**Claude Code (CLI):**
+**Claude Code — as a plugin (recommended):**
+
+```bash
+/plugin marketplace add lumian2015/claudeimagine-mcp
+/plugin install claude-imagine@claudeimagine-mcp
+```
+
+The plugin ships nothing but this server's configuration, so installing it is
+the same as adding the connector by hand — it just keeps the setup versioned
+and lets `/plugin` manage updates. Claude Code reports the server as
+`needs-auth` until you run `/mcp` and complete the browser login once.
+
+**Claude Code — as a plain connector:**
 
 ```bash
 claude mcp add --transport http claude-imagine https://claudeimagine.com/api/mcp
@@ -45,10 +57,15 @@ walkthrough (including Team/Enterprise setup): [claudeimagine.com/claude-image-m
 
 | Tool | What it does |
 | --- | --- |
-| `generate_image` | Generate an image from a prompt. `model` picks between `nano-banana-2` (default), `gpt-image-2`, `seedream-4.5`, `flux-2-pro`, `z-image`; `aspect_ratio` defaults to `1:1`. |
-| `generate_video` | Generate a video. `model` picks between `grok-imagine` (default), `seedance-1.5-pro`, `seedance-2.0-mini`, `veo-3.1-fast`, `kling-2.5-turbo`, each with its own duration/resolution ranges; optional `image_url` for image-to-video. |
-| `list_models` | Lists available image and video models with their live credit cost for your plan tier. |
-| `get_credits` | Returns your remaining credit balance. |
+| `generate_image` | Image from a text prompt. `model`: `nano-banana-2` (default), `gpt-image-2.5`, `seedream-4.5`, `flux-2-pro`, `z-image`. Optional `aspect_ratio` and `resolution` (`1k`/`2k`/`4k`). |
+| `edit_image` | Change an existing image from one or more reference URLs, same model and size options. |
+| `generate_video` | Video from a prompt, optionally from a starting image. `model`: `grok-imagine`, `seedance-1.5-pro`, `seedance-2.0-mini`, `veo-3.1-fast`, `kling-2.5-turbo`, `h3-max-turbo`, each with its own duration and resolution range. |
+| `quote_generation` | Exact credit cost of a call **before** you make it, with your balance and plan eligibility. Free; nothing is reserved. |
+| `check_generation` | Collect the result of a generation that outlived its original request. |
+| `list_generations` | Your recent generations. |
+| `list_models` | Available image and video models with the live credit cost for your plan tier. |
+| `get_credits` | Your remaining credit balance. |
+| `plan_product_ad` | Guided product-ad workflow with budget safeguards. |
 
 Credits are consumed on a successful generation and refunded automatically
 if one fails. Full tool reference, per-model duration/resolution tables, and

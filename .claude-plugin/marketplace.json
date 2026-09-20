@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claudeimagine-mcp",
+  "description": "Image and video generation for Claude Code, from Claude Imagine.",
+  "owner": {
+    "name": "Claude Imagine",
+    "email": "support@claudeimagine.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-imagine",
+      "description": "Generate and edit AI images and videos without leaving Claude Code. Nano Banana 2, GPT Image 2.5, Seedream 4.5, Flux 2 Pro and Z-Image for stills; Veo, Kling, Seedance, Grok Imagine and MiniMax for clips. Ask for the price before you spend with quote_generation.",
+      "author": {
+        "name": "Claude Imagine"
+      },
+      "category": "design",
+      "source": "./"
+    }
+  ]
+}
