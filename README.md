@@ -12,7 +12,8 @@ sponsored by, or endorsed by Anthropic.
 This repository documents the connector and its manifest (`server.json`, as
 published to the [official MCP
 Registry](https://registry.modelcontextprotocol.io)). The server itself runs
-as part of the Claude Imagine web app, whose source is closed.
+as part of the Claude Imagine web app, whose source is closed. It is unrelated
+to other open-source projects that also use the name "claude-imagine".
 
 ## Endpoint
 
@@ -58,6 +59,7 @@ walkthrough (including Team/Enterprise setup): [claudeimagine.com/claude-image-m
 | Tool | What it does |
 | --- | --- |
 | `generate_image` | Image from a text prompt. `model`: `nano-banana-2` (default), `gpt-image-2.5`, `seedream-4.5`, `flux-2-pro`, `z-image`. Optional `aspect_ratio` and `resolution` (`1k`/`2k`/`4k`). |
+| `list_styles` | Named looks for `generate_image`: YouTube thumbnails, book covers, album and podcast art, posters, blog covers and product photos, four styles each. Free; pass the chosen id as `style`. |
 | `edit_image` | Change an existing image from one or more reference URLs, same model and size options. |
 | `generate_video` | Video from a prompt, optionally from a starting image. `model`: `grok-imagine`, `seedance-1.5-pro`, `seedance-2.0-mini`, `veo-3.1-fast`, `kling-2.5-turbo`, `h3-max-turbo`, each with its own duration and resolution range. |
 | `quote_generation` | Exact credit cost of a call **before** you make it, with your balance and plan eligibility. Free; nothing is reserved. |
